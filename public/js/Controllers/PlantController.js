@@ -9,7 +9,9 @@
     $scope.plants = $firebaseArray(ref);
     $scope.addPlants = addPlants;
     $scope.edit = editPlant;
+    $scope.update = updatePlant;
     $scope.cancel = cancelUpdate;
+
 
 
     function addPlants(){
@@ -25,9 +27,12 @@
     $scope.use = "";
     }
 
-
-
     function cancelUpdate(plant){
+      $scope.plants = $firebaseArray(ref);
+      plant.editing = false;
+    }
+
+    function updatePlant(plant){
       plant.editing = false;
       $scope.plants.$save(plant);
     }

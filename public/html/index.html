@@ -28,34 +28,45 @@
         <div class="col-md-12">
           <h1 ng-hide="plant.editing"> {{plant.COMMON}}</h1>
           <div ng-show="plant.editing">
-            <input type="text" ng-model="plant.COMMON">
+            <input type="text" ng-model="plant.COMMON" class="form-control">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h3> Scientific Name: {{ plant.SCIENTIFIC }} </h3>
+          <h3 ng-hide="plant.editing"> Scientific Name: {{ plant.SCIENTIFIC }} </h3>
+          <div ng-show="plant.editing">
+            <input type="text" ng-model="plant.SCIENTIFIC" class="form-control">
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h3>
-            Use: {{ plant.USE }}
-          </h3>
+          <h3 ng-hide="plant.editing"> Use: {{ plant.USE }}</h3>
+          <div ng-show="plant.editing">
+            <input type="text" ng-model="plant.USE" class="form-control">
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-10">
-          <h3>
-            Layertype: {{ plant.LAYERTYPE }}
-          </h3>
-          <button class="btn btn-default" ng-click="plants.$remove(plant)">
+        <div class="col-md-12">
+          <h3 ng-hide="plant.editing"> Layertype: {{ plant.LAYERTYPE }} </h3>
+          <div ng-show="plant.editing">
+            <input type="text" ng-model="plant.LAYERTYPE" class="form-control">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <button ng-hide="plant.editing" class="btn btn-success " ng-click="edit(plant)">Edit</button>
+          <button ng-show='plant.editing' class="btn btn-warning" ng-click="update(plant)">Update</button>
+          <button ng-show='plant.editing' class="btn btn-default" ng-click="cancel(plant)">Cancel</button>
+          <button class="btn btn-default pull-right" ng-click="plants.$remove(plant)">
             <span class="glyphicon glyphicon-trash"></span>
           </button>
         </div>
       </div>
-      <button ng-hide="plant.editing" class="btn btn-success" ng-click="edit(plant)">Edit</button>
-      <button ng-show='plant.editing' class="btn btn-default" ng-click="cancel(plant)">Update</button>
     </div>
   </div>
 </div>
