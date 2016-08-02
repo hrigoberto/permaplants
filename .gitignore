@@ -1,2 +1,4 @@
 node_modules
 patPlantList.json
+*.log
+.DS_store
