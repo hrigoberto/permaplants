@@ -26,9 +26,11 @@
     <div class="row well" ng-repeat="plant in plants | filter:searchBox">
       <div class="row">
         <div class="col-md-12">
-          <h1 ng-hide="plant.editing" > {{plant.COMMON}}</h1>
+          <h1 ng-hide="plant.editing"> {{plant.COMMON}}</h1>
+          <div ng-show="plant.editing">
+            <input type="text" ng-model="plant.COMMON">
+          </div>
         </div>
-        <div ng-show="plant.editing"></div>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -53,8 +55,7 @@
         </div>
       </div>
       <button ng-hide="plant.editing" class="btn btn-success" ng-click="edit(plant)">Edit</button>
-      <button ng-show='plant.editing' class="btn btn-warning" ng-click="update(plant)">Update</button>
-      <button ng-show='plant.editing' class="btn btn-default" ng-click="cancel(plant)">Cancel</button>
+      <button ng-show='plant.editing' class="btn btn-default" ng-click="cancel(plant)">Update</button>
     </div>
   </div>
 </div>

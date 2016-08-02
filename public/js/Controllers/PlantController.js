@@ -11,6 +11,7 @@
     $scope.edit = editPlant;
     $scope.cancel = cancelUpdate;
 
+
     function addPlants(){
       $scope.plants.$add({
         COMMON: $scope.common,
@@ -24,8 +25,11 @@
     $scope.use = "";
     }
 
+
+
     function cancelUpdate(plant){
       plant.editing = false;
+      $scope.plants.$save(plant);
     }
 
     function editPlant(plant){
