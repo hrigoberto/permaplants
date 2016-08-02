@@ -9,6 +9,15 @@
 <body>
 <div class="container" style="margin-top: 130px;">
   <div ng-app="permaplants" ng-controller="PlantController">
+    <div class="row">
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="common" placeholder="Common Name:">
+        <input type="text" class="form-control" ng-model="scientific" placeholder="Scientific Name:">
+        <input type="text" class="form-control" ng-model="layertype" placeholder="Layer Type:">
+        <input type="text" class="form-control" ng-model="use" placeholder="Use:">
+        <button class="btn btn-primary" ng-click="addPlants()">Create New Plant</button>
+      </div>
+    </div>
     <div class="row well" ng-repeat="plant in plants">
       <div class="row">
         <div class="col-md-12">
