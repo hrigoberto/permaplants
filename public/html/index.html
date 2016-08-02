@@ -11,6 +11,11 @@
   <div ng-app="permaplants" ng-controller="PlantController">
     <div class="row">
       <div class="form-group">
+        <input type="text" class="form-control" ng-model="searchBox" placeholder="Search">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
         <input type="text" class="form-control" ng-model="common" placeholder="Common Name:">
         <input type="text" class="form-control" ng-model="scientific" placeholder="Scientific Name:">
         <input type="text" class="form-control" ng-model="layertype" placeholder="Layer Type:">
@@ -18,10 +23,10 @@
         <button class="btn btn-primary" ng-click="addPlants()">Create New Plant</button>
       </div>
     </div>
-    <div class="row well" ng-repeat="plant in plants">
+    <div class="row well" ng-repeat="plant in plants | filter:searchBox">
       <div class="row">
         <div class="col-md-12">
-          <h1> Common Name: {{plant.COMMON}}</h1>
+          <h1> {{plant.COMMON}}</h1>
         </div>
       </div>
       <div class="row">
