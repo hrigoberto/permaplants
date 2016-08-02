@@ -4,13 +4,44 @@
   <meta charset="UTF-8">
   <title>plantlist</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
 </head>
 <body>
-
+<div class="container" style="margin-top: 130px;">
+  <div ng-app="permaplants" ng-controller="PlantController">
+    <div class="row well" ng-repeat="plant in plants">
+      <div class="row">
+        <div class="col-md-12">
+          <h1> Common Name: {{plant.COMMON}}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3> Scientific Name: {{ plant.SCIENTIFIC }} </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>
+            Use: {{ plant.USE }}
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>
+            Layertype: {{ plant.LAYERTYPE }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 <script src="js/app.js" charset="utf-8"></script>
+<script src="js/services/PlantService.js" charset="utf-8"></script>
+<script src="js/Controllers/PlantController.js" charset="utf-8"></script>
 </body>
 </html>

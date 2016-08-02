@@ -6,4 +6,6 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var database = firebase.database();
+angular.module('permaplants',[
+  'firebase'
+]);
