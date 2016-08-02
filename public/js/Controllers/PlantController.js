@@ -6,8 +6,10 @@
 
   function PlantController($scope, $firebaseArray){
     var ref = firebase.database().ref('plantlist')
-    $scope.addPlants = addPlants;
     $scope.plants = $firebaseArray(ref);
+    $scope.addPlants = addPlants;
+    $scope.edit = editPlant;
+    $scope.cancel = cancelUpdate;
 
     function addPlants(){
       $scope.plants.$add({
@@ -16,12 +18,19 @@
         SCIENTIFIC: $scope.scientific,
         USE: $scope.use
       });
-
     $scope.common = "";
     $scope.layertype = "";
     $scope.scientific = "";
     $scope.use = "";
-
     }
+
+    function cancelUpdate(plant){
+      plant.editing = false;
+    }
+
+    function editPlant(plant){
+      plant.editing = true;
+    }
+
   }
 }());
