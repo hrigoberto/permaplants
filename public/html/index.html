@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
 </head>
 <body>
+
+<div class="containr">
+  <div ng-controller="Auth">
+    <button class="btn btn-primary" ng-click="googleLogin">Admin Login</button>
+  </div>
+</div>
 <div class="container" style="margin-top: 130px;">
   <div ng-app="permaplants" ng-controller="PlantController">
     <div class="row">
@@ -76,5 +82,6 @@
 <script src="js/app.js" charset="utf-8"></script>
 <script src="js/services/PlantService.js" charset="utf-8"></script>
 <script src="js/Controllers/PlantController.js" charset="utf-8"></script>
+<script src="js/auth.js" charset="utf-8"></script>
 </body>
 </html>
