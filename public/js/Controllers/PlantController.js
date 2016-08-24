@@ -5,8 +5,8 @@
   PlantController.$inject = ['$scope', '$firebaseArray'];
 
   function PlantController($scope, $firebaseArray){
-    var ref = firebase.database().ref('plantlist')
-    $scope.plants = $firebaseArray(ref);
+    var refPlants = firebase.database().ref('plantlist')
+    $scope.plants = $firebaseArray(refPlants);
     $scope.addPlants = addPlants;
     $scope.edit = editPlant;
     $scope.update = updatePlant;

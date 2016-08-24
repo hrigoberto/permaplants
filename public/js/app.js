@@ -7,5 +7,6 @@ var config = {
   firebase.initializeApp(config);
 
 angular.module('permaplants',[
-  'firebase'
+  'firebase',
+  'ngRoute'
 ]);
