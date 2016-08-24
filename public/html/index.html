@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="permaplants">
 <head>
   <meta charset="UTF-8">
   <title>plantlist</title>
@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<div class="containr">
+<div class="container">
   <div ng-controller="Auth">
-    <button class="btn btn-primary" ng-click="googleLogin">Admin Login</button>
+    <button class="btn btn-primary" ng-click="Login()">Admin Login</button>
   </div>
 </div>
 <div class="container" style="margin-top: 130px;">
@@ -80,7 +80,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 <script src="js/app.js" charset="utf-8"></script>
-<script src="js/services/PlantService.js" charset="utf-8"></script>
 <script src="js/Controllers/PlantController.js" charset="utf-8"></script>
 <script src="js/auth.js" charset="utf-8"></script>
 </body>
