@@ -2,12 +2,12 @@
   angular.module('permaplants')
          .controller('Auth', Auth);
 
-  Auth.$inject = ['$scope', '$firebaseAuth' ];
+  Auth.$inject = ['$scope', '$firebaseAuth', '$firebaseArray' ];
 
-  function Auth($scope, $firebaseAuth){
+  function Auth($scope, $firebaseAuth, $firebaseArray){
     var auth = $firebaseAuth();
-    // var refUsers = firebase.database().ref('users')
-    // $scope.users = $firebase(refUsers);
+    var refUsers = firebase.database().ref('users')
+    $scope.users = $firebaseArray(refUsers);
     $scope.Login = googleLogin;
     $scope.createUser = createUser;
 
@@ -16,16 +16,21 @@
     function createUser(){
       $scope.message = null;
       $scope.error = null;
-      // $scope.users.$add({
-      //
-      // })
       auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
         .then(function(firebaseUser){
-          $scope.message = "User Created with uid:" + firebaseUser.uid;
+          $scope.users.$add({
+            FIRSTNAME: $scope.firstName,
+            LASTNAME: $scope.lastName,
+            EMAIL: $scope.email,
+            PASSWORD: $scope.password,
+            uid: firebaseUser.uid,
+            rolevalue: 10
+          });
         })
         .catch(function(error){
           $scope.error = error;
         })
+    ;
     }
     function googleLogin(){
       auth.$signInWithPopup('google').then(function(firebaseUser){
@@ -34,5 +39,9 @@
         console.log("Authentication failed:", error);
       });
     };
+    $scope.firstName = "";
+    $scope.lastName = "";
+    $scope.email = "";
+    $scope.password = "";
   }
 }());
