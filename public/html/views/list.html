@@ -1,5 +1,14 @@
 <div class="container" style="margin-top: 130px;">
-  <div ng-app="permaplants" ng-controller="PlantController">
+  <div ng-controller="Auth">
+    <input ng-hide="firebaseUser"  type="email" class="form-control" ng-model="email" placeholder="Email:">
+    <input ng-hide="firebaseUser"  type="password" class="form-control" ng-model="password" placeholder="Password:">
+    <button ng-hide="firebaseUser" class="btn btn-primary" ng-click="login(email, password)">Login</button>
+    <button ng-show="firebaseUser" class="btn btn-primary" ng-click="logout()">Logout</button>
+    <a ng-hide="firebaseUser" class="btn btn-primary" href="#/signup">
+      Signup
+    </a>
+  </div>
+  <div ng-controller="PlantController">
     <div class="row">
       <div class="form-group">
         <input type="text" class="form-control" ng-model="searchBox" placeholder="Search">
