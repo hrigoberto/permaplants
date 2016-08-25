@@ -29,9 +29,10 @@
         })
         .catch(function(error){
           $scope.error = error;
-        })
-    ;
+        });
     }
+
+
     function googleLogin(){
       auth.$signInWithPopup('google').then(function(firebaseUser){
         console.log("Signed in as:", firebaseUser);
