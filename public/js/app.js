@@ -8,5 +8,7 @@ var config = {
 
 angular.module('permaplants',[
   'firebase',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap',
+  'ngAnimate'
 ]);
